@@ -1,17 +1,42 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
-
+var dayTime = dayjs().hour();
+console.log(dayTime)
 
 $(function () {
 
   var currentDay = $('#currentDate');
-  var currentDate = dayjs("2023-01-26").format('MMM D, YYYY')
+  var currentDate = dayjs().format('MMM D, YYYY')
   $( "#datepicker" ).datepicker();
   currentDay.text(currentDate);
+  var timeBlocks = $('time-block');
+  // console.log('timeBlocks', timeBlocks);
+  $('.time-block').each(function(){
+    var eachTime = $(this).attr('id').substring(5);
+    console.log(eachTime);
+    if (dayTime < eachTime){
+      console.log('lessthan');
+      
+    }
+    else if (dayTime > eachTime){
+      console.log('greater than');
+      changeClass();
+    }
+    else if (dayTime = eachTime) { 
+      console.log('equal to')
+    }
+  });
 
 
+  function changeClass (){
+    document.getElementsByClassName("future present").className = "past";
+    $('#future').addClass('past');
+  }
+
+  
+  
+  
 
 
   // TODO: Add a listener for click events on the save button. This code should
@@ -21,6 +46,8 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
