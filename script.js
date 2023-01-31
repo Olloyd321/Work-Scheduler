@@ -2,6 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var dayTime = dayjs().hour();
+dayTime = 13
 console.log(dayTime)
 
 $(function () {
@@ -13,25 +14,31 @@ $(function () {
   var timeBlocks = $('time-block');
   // console.log('timeBlocks', timeBlocks);
   $('.time-block').each(function(){
+    console.log(this)
     var eachTime = $(this).attr('id').substring(5);
     console.log(eachTime);
+    $(this).removeClass('past');
+    $(this).removeClass('future');
+    $(this).removeClass('present');
     if (dayTime < eachTime){
       console.log('lessthan');
-      
+      $(this).addClass('future');
     }
     else if (dayTime > eachTime){
       console.log('greater than');
-      changeClass();
+      $(this).addClass('past');
     }
     else if (dayTime = eachTime) { 
       console.log('equal to')
+      $(this).addClass('present');
     }
   });
 
 
-  function changeClass (){
-    document.getElementsByClassName("future present").className = "past";
-    $('#future').addClass('past');
+  function changeClass (jQueryObj){
+    // document.getElementsByClassName("future present").className = "past";
+    // $('#future').addClass('past');
+    $(jQueryObj).addClass('past');
   }
 
   
@@ -60,3 +67,4 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
