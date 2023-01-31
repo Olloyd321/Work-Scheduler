@@ -2,13 +2,12 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var dayTime = dayjs().hour();
-dayTime = 13
-console.log(dayTime)
+var calendarContainer = $('.container-lg');
+console.log(dayTime);
 
 $(function () {
-
   var currentDay = $('#currentDate');
-  var currentDate = dayjs().format('MMM D, YYYY')
+  var currentDate = dayjs().format('MMM D, YYYY');
   $( "#datepicker" ).datepicker();
   currentDay.text(currentDate);
   var timeBlocks = $('time-block');
@@ -21,15 +20,12 @@ $(function () {
     $(this).removeClass('future');
     $(this).removeClass('present');
     if (dayTime < eachTime){
-      console.log('lessthan');
       $(this).addClass('future');
     }
     else if (dayTime > eachTime){
-      console.log('greater than');
       $(this).addClass('past');
     }
     else if (dayTime = eachTime) { 
-      console.log('equal to')
       $(this).addClass('present');
     }
   });
@@ -40,8 +36,20 @@ $(function () {
     // $('#future').addClass('past');
     $(jQueryObj).addClass('past');
   }
+  console.log(calendarContainer)
+  calendarContainer.on("click", ".saveBtn",saveCalendarEvent);
 
-  
+  function saveCalendarEvent (event){
+    // console.log('saveEvent', event.target);
+    var saveRow = $(event.target).parent();
+    var rowId = saveRow.attr('id');
+    
+    var textToSave = saveRow.children('.description').eq(0).val();
+    localStorage.setItem(rowId, textToSave);
+    // console.log(saveRow.attr('id'))
+    console.log(saveRow.children('.description').eq(0).val());
+  }
+
   
   
 
