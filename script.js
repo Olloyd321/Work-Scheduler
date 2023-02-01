@@ -19,6 +19,7 @@ $(function () {
     $(this).removeClass('past');
     $(this).removeClass('future');
     $(this).removeClass('present');
+
     if (dayTime < eachTime){
       $(this).addClass('future');
     }
