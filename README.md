@@ -1,11 +1,9 @@
 # Work-Scheduler
 This repo is for the 05 Module challenge "Work Day Scheduler"
+<br>
+#### The purpose of this challenge is to display my understanding of using API's such as Jquery and DayJS
+<br>
 
-## The purpose of this challenge is to display my understanding of using API's such as Jquery and DayJS
-
-Please find a link to the deployed application [here]()
-
-Please find a link to the projects repository [here]()
 
 ## Acceptance Criteria
 
@@ -24,3 +22,15 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
+
+## Challenges
+The most challenging part of this project was *again* how to save info to storage *and* then displaying that information.
+I am usually able to at some point able to get *something* saved to local storage
+
+<br>
+
+## LINKS
+
+Please find a link to the deployed application [here]()
+
+Please find a link to the projects repository [here](https://github.com/Olloyd321/Work-Scheduler)

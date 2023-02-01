@@ -48,6 +48,7 @@ $(function () {
     localStorage.setItem(rowId, textToSave);
     // console.log(saveRow.attr('id'))
     console.log(saveRow.children('.description').eq(0).val());
+    saveRow.children('.description').eq(0).val()
   }
 
   
